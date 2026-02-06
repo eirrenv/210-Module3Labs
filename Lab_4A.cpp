@@ -36,16 +36,34 @@ int main() {
     Color firstColor;
 
     int n; // initialize new random int n
+    srand(time(0));
     n = rand() % 26 + 25;
-    cout << n;
-    firstColor = createColor();
+    // cout << n; test cout
 
+    // create and push color structs into vector
+    for (int i = 0; i < n; ++i) {
+        Color tmpColor;
+        // create random values from 0 to 256 for temp struct
+        tmpColor.red = rand() % 255 + 0;
+        tmpColor.green = rand() % 255 + 0;
+        tmpColor.blue = rand() % 255 + 0;
+        colorVector.push_back(tmpColor);
+    }
+
+    // test printing vector
+    for (int j = 0; j < n; ++j) {
+        cout << "colorVector #: " << j << " ";
+        printColor(colorVector[j]);
+    }
+
+    /* removing for Milestone 3
+
+    firstColor = createColor();
     // was already added in Milestone 1, adding comment to push update
     colorVector.push_back(firstColor);
 
     printColor(colorVector[0]);
-
-
+    */
 
     return 0;
 }
