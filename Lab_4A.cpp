@@ -23,11 +23,11 @@ Color createColor() {
     return newColor;
 }
 
-// basic Color print function for testing, will create table after commit
+// table Color print function
 void printColor(Color color) {
-    cout << "Red: " << color.red << " ";
-    cout << "Green: " << color.green << " ";
-    cout << "Blue: " << color.blue << endl;
+    cout <<  "\t" << setw(4) << color.red;
+    cout << "\t" << setw(4) << color.green;
+    cout << "\t" << setw(4) << color.blue << endl;
 }
 
 // basic main function to create vector and first test color, append to vector and print from vector
@@ -38,7 +38,6 @@ int main() {
     int n; // initialize new random int n
     srand(time(0));
     n = rand() % 26 + 25;
-    // cout << n; test cout
 
     // create and push color structs into vector
     for (int i = 0; i < n; ++i) {
@@ -50,20 +49,16 @@ int main() {
         colorVector.push_back(tmpColor);
     }
 
+    // table start
+    cout << "Color#\tR value\tG value\tB value" << endl;
+    cout << "------\t------\t------\t------" << endl;
+
+
     // test printing vector
     for (int j = 0; j < n; ++j) {
-        cout << "colorVector #: " << j << " ";
+        cout << setw(4) << j + 1;
         printColor(colorVector[j]);
     }
-
-    /* removing for Milestone 3
-
-    firstColor = createColor();
-    // was already added in Milestone 1, adding comment to push update
-    colorVector.push_back(firstColor);
-
-    printColor(colorVector[0]);
-    */
 
     return 0;
 }
