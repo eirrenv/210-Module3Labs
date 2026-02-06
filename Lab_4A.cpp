@@ -23,7 +23,7 @@ Color createColor() {
     return newColor;
 }
 
-// table Color print function
+// formatted Color print function
 void printColor(Color color) {
     cout <<  "\t" << setw(4) << color.red;
     cout << "\t" << setw(4) << color.green;
@@ -54,11 +54,13 @@ int main() {
     cout << "------\t------\t------\t------" << endl;
 
 
-    // test printing vector
+    // print vector color values
     for (int j = 0; j < n; ++j) {
         cout << setw(4) << j + 1;
         printColor(colorVector[j]);
     }
 
+
+    // adding to update comments in commit
     return 0;
 }
