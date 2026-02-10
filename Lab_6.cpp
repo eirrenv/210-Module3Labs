@@ -6,7 +6,7 @@ using namespace std;
 // function prototypes
 void enterArrayData(double *dynamicArray);
 void outputArrayData(double *dynArray);
-void sumArray(double *dArray);
+double sumArray(double *dArray);
 
 // array size initialization
 const int SIZE = 5;
@@ -23,8 +23,11 @@ int main() {
     // output added data
     outputArrayData(doubleArr);
 
-    // output sum of array
-    sumArray(doubleArr);
+    // create double to hold sumArray() return
+    double sum = 0.0;
+
+    sum = sumArray(doubleArr);
+    cout << "Sum of values: " << sum << endl;
 
     // delete dynamic array for cleanliness :)
     delete [] doubleArr; 
@@ -52,10 +55,10 @@ void outputArrayData(double *dynArray) {
     cout << endl;
 }
 
-void sumArray(double *dArray) {
+double sumArray(double *dArray) {
     double sum = 0;
     for (int i = 0; i < SIZE; ++i) {
         sum += *(dArray + i);
     }
-    cout << "Sum of values: " << sum << endl;
+    return sum;
 }
