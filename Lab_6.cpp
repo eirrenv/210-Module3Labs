@@ -1,9 +1,11 @@
 #include <iostream>
+// added for outputArrayData()
+#include <iomanip>
 using namespace std;
 
 // function prototypes
 void enterArrayData(double *dynamicArray);
-// void outputArrayData(double *dynArray);
+void outputArrayData(double *dynArray);
 // double sumArray(double *dArray);
 
 // array size initialization
@@ -18,6 +20,9 @@ int main() {
     // inputting data into new dynamic array
     enterArrayData(doubleArr);
 
+    // output added data
+    outputArrayData(doubleArr);
+
     return 0;
 }
 
@@ -30,4 +35,13 @@ void enterArrayData(double *dynamicArray) {
         cin >> *(dynamicArray + i);
     }
     cout << "Data entry complete.\n";
+}
+
+// outputs array data with one sig fig
+void outputArrayData(double *dynArray) {
+    cout << "Outputting array elemets: ";
+    for (int i = 0; i < SIZE; ++i) {
+        cout << fixed << setprecision(1) << *(dynArray + i) << " ";
+    }
+    cout << endl;
 }
