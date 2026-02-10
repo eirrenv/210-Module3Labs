@@ -2,7 +2,7 @@
 using namespace std;
 
 // function prototypes
-double enterArrayData(double *dynamicArray);
+void enterArrayData(double *dynamicArray);
 // void outputArrayData(double *dynArray);
 // double sumArray(double *dArray);
 
@@ -14,6 +14,14 @@ int main() {
     return 0;
 }
 
-double enterArrayData(double *dynamicArray) {
 
+// receives dynamic double array and populates with inputted values
+void enterArrayData(double *dynamicArray) {
+    cout << "Data entry for the array:\n";
+    for (int i = 0; i < SIZE; ++i) {
+        cout << "\t> Element #" << i << " \n";
+        cin >> *(dynamicArray + i);
+        cout << endl;
+    }
+    cout << "\nData entry complete.\n";
 }
