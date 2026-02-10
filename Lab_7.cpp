@@ -3,7 +3,7 @@
 using namespace std;
 
 // function prototypes
-// string* reverseArray(string *strArray);
+string* reverseArray(string *strArray);
 void displayArray(string *stringArray, string *modifiedArray);
 
 // constant array size int
@@ -16,24 +16,39 @@ int main() {
     listOfNames = new string[SIZE];
 
     // initializing array
-    listOfNames[0] = "Mario";
-    listOfNames[1] = "Luigi";
-    listOfNames[2] = "Peach";
-    listOfNames[3] = "Toad";
-    listOfNames[4] = "Yoshi";
+    *(listOfNames) = "Mario";
+    *(listOfNames + 1) = "Luigi";
+    *(listOfNames + 2) = "Peach";
+    *(listOfNames + 3) = "Toad";
+    *(listOfNames + 4) = "Yoshi";
+
+    // initializing modified array
+    string *reversedList = nullptr;
+
+    // setting modified array to point to reversed array
+    reversedList = reverseArray(listOfNames);
+
+    // print arrays
+    displayArray(listOfNames, reversedList);
 
     return 0;
 }
 
 // receives dynamic string array, reverses elements, returns a pointer to modified array
-/* string* reverseArray(string *strArray) {
+string* reverseArray(string *strArray) {
+    string *reversedArray = new string[SIZE];
+    for (int i = 0; i < SIZE; ++i) {
+        *(reversedArray + i) = *(strArray + SIZE - 1 - i);
+    }
+    return reversedArray;
+}
 
-} */
 
+// prints both original array and reversed array
 void displayArray(string *stringArray, string *modifiedArray) {
     cout << "Original array: ";
     for (int i = 0; i < SIZE; ++i) {
-        cout << *(stringArray + i);
+        cout << *(stringArray + i) << " ";
     }
     cout << endl;
     cout << "Reversed array: ";
