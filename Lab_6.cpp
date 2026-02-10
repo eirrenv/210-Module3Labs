@@ -1,12 +1,12 @@
 #include <iostream>
-// added for outputArrayData()
+// added for outputArrayData() and sumArray()
 #include <iomanip>
 using namespace std;
 
 // function prototypes
 void enterArrayData(double *dynamicArray);
 void outputArrayData(double *dynArray);
-// double sumArray(double *dArray);
+void sumArray(double *dArray);
 
 // array size initialization
 const int SIZE = 5;
@@ -22,6 +22,12 @@ int main() {
 
     // output added data
     outputArrayData(doubleArr);
+
+    // output sum of array
+    sumArray(doubleArr);
+
+    // delete dynamic array for cleanliness :)
+    delete [] doubleArr; 
 
     return 0;
 }
@@ -44,4 +50,12 @@ void outputArrayData(double *dynArray) {
         cout << fixed << setprecision(1) << *(dynArray + i) << " ";
     }
     cout << endl;
+}
+
+void sumArray(double *dArray) {
+    double sum = 0;
+    for (int i = 0; i < SIZE; ++i) {
+        sum += *(dArray + i);
+    }
+    cout << "Sum of values: " << sum << endl;
 }
