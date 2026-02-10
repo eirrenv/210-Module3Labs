@@ -11,6 +11,13 @@ const int SIZE = 5;
 
 int main() {
 
+    // creating dynamic double array
+    double *doubleArr = nullptr;
+    doubleArr = new double[SIZE];
+
+    // inputting data into new dynamic array
+    enterArrayData(doubleArr);
+
     return 0;
 }
 
@@ -19,9 +26,8 @@ int main() {
 void enterArrayData(double *dynamicArray) {
     cout << "Data entry for the array:\n";
     for (int i = 0; i < SIZE; ++i) {
-        cout << "\t> Element #" << i << " \n";
+        cout << "\t> Element #" << i << " ";
         cin >> *(dynamicArray + i);
-        cout << endl;
     }
-    cout << "\nData entry complete.\n";
+    cout << "Data entry complete.\n";
 }
