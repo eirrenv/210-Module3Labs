@@ -31,6 +31,10 @@ int main() {
     // print arrays
     displayArray(listOfNames, reversedList);
 
+    // deleting arrays
+    delete [] listOfNames;
+    delete [] reversedList;
+
     return 0;
 }
 
